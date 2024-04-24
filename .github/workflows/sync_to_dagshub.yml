@@ -11,17 +11,17 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        fetch-depth: 0  
+        fetch-depth: 0  # Importante para asegurar que todos los commits/historia sean fetch
 
     - name: Setup Git and Push to DagsHub
       env:
         DAGSHUB_REPO: ${{ secrets.DAGSHUB_REPO }}
         DAGSHUB_USERNAME: ${{ secrets.DAGSHUB_USERNAME }}
         DAGSHUB_PASSWORD: ${{ secrets.DAGSHUB_PASSWORD }}
-        GITHUB_USER: ${{ secrets.GITHUB_USER }}
-        GITHUB_EMAIL: ${{ secrets.GITHUB_EMAIL }}
+        MY_GITHUB_USER: ${{ secrets.MY_GITHUB_USER }}
+        MY_GITHUB_EMAIL: ${{ secrets.MY_GITHUB_EMAIL }}
       run: |
-        git config --global user.name $GITHUB_USER
-        git config --global user.email $GITHUB_EMAIL
+        git config --global user.name $MY_GITHUB_USER
+        git config --global user.email $MY_GITHUB_EMAIL
         git remote add dagshub $DAGSHUB_REPO || true
         git push dagshub main
