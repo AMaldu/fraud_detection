@@ -5,20 +5,20 @@ on:
     branches:
       - main  
 
-      jobs:
-        sync:
-          runs-on: ubuntu-latest
-          steps:
-          - uses: actions/checkout@v2
-          - name: Setup Git
-            run: |
-              git config user.name ${{ secrets.GH_USER }}
-              git config user.email ${{ secrets.GH_EMAIL }}
-          - name: Add DagsHub remote and push
-            run: |
-              git remote add dagshub ${{ secrets.DH_FRAUD_REPO}}
-              git push dagshub main
-            env:
-              DAGSHUB_TOKEN: ${{ secrets.DAGSHUB_TOKEN }}
-      
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Git
+      run: |
+        git config user.name ${{ secrets.MY_GITHUB_USER }}
+        git config user.email ${{ secrets.MY_GITHUB_EMAIL }}
+    - name: Add DagsHub remote and push
+      run: |
+        git remote add dagshub ${{ secrets.DH_FRAUD_REPO}}
+        git push dagshub main
+      env:
+        DAGSHUB_TOKEN: ${{ secrets.DH_TOKEN }}
+
       
