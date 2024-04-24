@@ -1,0 +1,27 @@
+name: Sync GitHub to DagsHub
+
+on:
+  push:
+    branches:
+      - main  
+
+jobs:
+  sync_to_dagshub:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0  
+
+    - name: Setup Git and Push to DagsHub
+      env:
+        DAGSHUB_REPO: ${{ secrets.DAGSHUB_REPO }}
+        DAGSHUB_USERNAME: ${{ secrets.DAGSHUB_USERNAME }}
+        DAGSHUB_PASSWORD: ${{ secrets.DAGSHUB_PASSWORD }}
+        GITHUB_USER: ${{ secrets.GITHUB_USER }}
+        GITHUB_EMAIL: ${{ secrets.GITHUB_EMAIL }}
+      run: |
+        git config --global user.name $GITHUB_USER
+        git config --global user.email $GITHUB_EMAIL
+        git remote add dagshub $DAGSHUB_REPO || true
+        git push dagshub main
