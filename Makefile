@@ -15,7 +15,7 @@ PYTHON_INTERPRETER = python3
 ## Activate with the command:
 ## source env/bin/activate
 virtualenv:
-	virtualenv -p $(PYTHON_INTERPRETER) fraudvenv
+	virtualenv -p $(PYTHON_INTERPRETER) env
 
 ## Install Python Dependencies.
 ## Make sure you activate the virtualenv first!
