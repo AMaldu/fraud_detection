@@ -12,4 +12,5 @@ matplotlib
 numpy
 seaborn
 scikit-learn
-
+mlflow == 2.12.0
+dvc
