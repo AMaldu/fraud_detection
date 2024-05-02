@@ -7,7 +7,12 @@ def pie_plot(col):
     explode = [0.02] * len(trans_freq)
 
     plt.figure(figsize=(5, 5))
-    plt.pie(trans_freq, labels=trans_freq.index, autopct='%1.1f%%', startangle=0, colors=plt.cm.Set2.colors, explode=explode)
+    plt.pie(trans_freq, 
+            labels=trans_freq.index, 
+            autopct='%1.1f%%', 
+            startangle=0, 
+            colors=plt.cm.Set2.colors, 
+            explode=explode)
     plt.title(f'Percentatge of {col.name} values')
     plt.show()
 

@@ -92,3 +92,5 @@ customer’s mobile money account.
 Cash out
 The process by which a customer deducts cash from his mobile money account. This is usually via an agent who gives the customer
 cash in exchange for a transfer from the customer’s mobile money account.
+
+binary classification problem - i.e. our target variable is a binary attribute (Is the user making the click fraudlent or not?) and our goal is to classify users into "fraudlent" or "not fraudlent" as well as possible.
