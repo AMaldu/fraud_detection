@@ -91,3 +91,6 @@ coverage.xml
 
 # env
 /fraudenv/
+
+#scratches
+src/EDA.ipynb
