@@ -14,3 +14,5 @@ seaborn
 scikit-learn
 mlflow == 2.12.0
 dvc
+prince
+dask == 2024.5.0
