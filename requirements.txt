@@ -15,5 +15,5 @@ scikit-learn
 mlflow == 2.12.0
 dvc
 prince
-dask == 2024.5.0
+dask[dataframe]
 scikit-learn == 1.4.0
