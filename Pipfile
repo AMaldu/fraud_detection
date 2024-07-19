@@ -1,0 +1,27 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+src = {file = ".", editable = true}
+click = "*"
+coverage = "*"
+awscli = "*"
+flake8 = "*"
+python-dotenv = ">=0.5.1"
+pandas = "==2.2.2"
+matplotlib = "*"
+numpy = "*"
+seaborn = "*"
+scikit-learn = "==1.4.0"
+mlflow = "==2.12.0"
+dvc = "*"
+prince = "*"
+dask = {extras = ["dataframe"], version = "*"}
+
+[dev-packages]
+ipykernel = "*"
+
+[requires]
+python_version = "3.11"
