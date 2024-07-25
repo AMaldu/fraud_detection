@@ -20,6 +20,9 @@ dvc = "*"
 prince = "*"
 dask = {extras = ["dataframe"], version = "*"}
 pickleshare = "*"
+parquet = "*"
+pyarrow = "*"
+fastparquet = "*"
 
 [dev-packages]
 ipykernel = "*"
