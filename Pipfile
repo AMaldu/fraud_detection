@@ -19,6 +19,7 @@ mlflow = "==2.12.0"
 dvc = "*"
 prince = "*"
 dask = {extras = ["dataframe"], version = "*"}
+pickleshare = "*"
 
 [dev-packages]
 ipykernel = "*"
