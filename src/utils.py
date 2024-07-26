@@ -34,9 +34,8 @@ def scatter_plot(col1, col2):
     
     
 def skewness_and_kurtosis(df, column_name):
-    column_data = df[column_name]
-    skewness_value = skew(column_data)
-    kurtosis_value = kurtosis(column_data)
+    skewness_value = df[column_name]. skew()
+    kurtosis_value = df[column_name].kurt()
     
     return {
         'skewness': skewness_value,
@@ -46,7 +45,7 @@ def skewness_and_kurtosis(df, column_name):
     
     
 def detect_outliers(data):
-    numeric_columns = data.select_dtypes(include=['int64', 'float64'])
+    numeric_columns = data.select_dtypes(include=['int16', 'float32'])
 
     non_binary_columns = numeric_columns.loc[:, numeric_columns.nunique() > 2]
 
