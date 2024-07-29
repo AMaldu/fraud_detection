@@ -57,5 +57,6 @@ def main():
 				last_send = last_send + datetime.timedelta(seconds=10)
 			logging.info("data sent")
 
+
 if __name__ == '__main__':
 	main()
