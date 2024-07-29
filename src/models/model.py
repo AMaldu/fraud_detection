@@ -11,9 +11,10 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.metrics import classification_report, confusion_matrix, roc_auc_score, roc_curve
+import pickle 
 
 # Cargar los datos
-df = pd.read_parquet('data/processed/df_final.parquet', engine='fastparquet')
+df = pd.read_parquet('../../data/processed/df_final.parquet', engine='fastparquet')
 
 # Definir columnas categóricas y numéricas
 numerical_cols = df.select_dtypes(include=['float32', 'int16']).columns
@@ -124,3 +125,7 @@ with mlflow.start_run(run_name='Random Forest'):
     plt.legend(loc="lower right")
     plt.savefig('Random_Forest_roc_curve.png')
     mlflow.log_artifact('Random_Forest_roc_curve.png')
+
+
+with open('random_forest_pipeline.pkl', 'wb') as f:
+    pickle.dump(pipeline, f)
