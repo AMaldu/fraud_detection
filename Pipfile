@@ -33,6 +33,7 @@ joblib = "*"
 psycopg = "*"
 psycopgbinary = "*"
 evidently = "*"
+pandas-profiling = "*"
 
 [dev-packages]
 ipykernel = "*"
