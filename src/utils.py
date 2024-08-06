@@ -2,6 +2,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
 from scipy.stats import probplot, skew, kurtosis
+import pickle
+import os
 
 def pie_plot(col):
     trans_freq = col.value_counts()
@@ -82,3 +84,18 @@ def qq_plots(data, numeric_cols):
         plt.ylabel('Sample Quantiles')
         plt.grid(True)
         plt.show()
+        
+
+def load_from_pickle(file_path):
+    """Load data from a pickle file."""
+    if os.path.isfile(file_path):
+        with open(file_path, 'rb') as file:
+            return pickle.load(file)
+    else:
+        raise FileNotFoundError(f"The file {file_path} does not exist.")
+
+def save_to_pickle(data, file_path):
+    """Save data to a pickle file."""
+    with open(file_path, 'wb') as file:
+        pickle.dump(data, file)
+
