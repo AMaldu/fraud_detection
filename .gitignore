@@ -79,6 +79,7 @@ coverage.xml
 # exclude data and trained models from source control by default
 /data/
 /models/
+notebooks/experiments/mlruns/
 
 # permitir el seguimiento de archivos .dvc dentro del directorio /data/
 !/data/**/*.dvc
