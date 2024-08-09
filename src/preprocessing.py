@@ -13,17 +13,13 @@ df = pd.read_csv('../data/bronze/PS_20174392719_1491204439457_log.csv')
 print('the original df is:')
 print(df.head)
 
-# Renombrar columnas y reemplazar valores
 df = df.rename(columns={'oldbalanceOrg': 'oldbalanceOrig'})
-#df['isFraud'] = df['isFraud'].replace({0: 'no_fraud', 1: 'fraud'})
 
-# Crear nuevas características
 df['diffbalanceOrig'] = df['newbalanceOrig'] - df['oldbalanceOrig']
 df['diffbalanceDest'] = df['newbalanceDest'] - df['oldbalanceDest']
 print('the df ready with all the necessary columns is')
 print(df.head())
 
-# Eliminar columnas no deseadas
 df = df.drop(columns=['newbalanceOrig', 'nameOrig', 'newbalanceDest', 'isFlaggedFraud'])
 
 # Dividir en características (X) y etiquetas (y)
