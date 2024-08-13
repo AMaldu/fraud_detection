@@ -34,6 +34,7 @@ psycopg = "*"
 psycopgbinary = "*"
 evidently = "*"
 pandas-profiling = "*"
+imbalanced-learn = "*"
 
 [dev-packages]
 ipykernel = "*"
