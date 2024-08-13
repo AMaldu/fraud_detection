@@ -18,7 +18,7 @@ scikit-learn = "1.5.1"
 mlflow = "*"
 dvc = "*"
 prince = "*"
-dask = {extras = ["dataframe"], version = "*"}
+dask = {extras = ["dataframe"] }
 pickleshare = "*"
 parquet = "*"
 pyarrow = "*"
