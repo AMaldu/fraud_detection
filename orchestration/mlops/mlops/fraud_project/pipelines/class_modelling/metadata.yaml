@@ -1,0 +1,201 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: fraud_project/global_data_products/training_set.py
+    global_data_product:
+      uuid: training_set
+  downstream_blocks:
+  - hyperparameter_tunning
+  - depuration
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Training set
+  retry_config: null
+  status: executed
+  timeout: null
+  type: global_data_product
+  upstream_blocks: []
+  uuid: training_set
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: fraud_project/transformers/depuration.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: depuration
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - training_set
+  uuid: depuration
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: fraud_project/markdowns/dynamic_block_info.md
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: markdown
+  name: Dynamic block info
+  retry_config: null
+  status: updated
+  timeout: null
+  type: markdown
+  upstream_blocks: []
+  uuid: dynamic_block_info
+- all_upstream_blocks_executed: true
+  color: teal
+  configuration:
+    dynamic: true
+    file_source:
+      path: fraud_project/custom/load_model.py
+  downstream_blocks:
+  - hyperparameter_tunning
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: load model
+  retry_config: null
+  status: executed
+  timeout: null
+  type: custom
+  upstream_blocks: []
+  uuid: load_model
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    dynamic: false
+    file_source:
+      path: fraud_project/transformers/hyperparameter_tunning.py
+    reduce_output: false
+  downstream_blocks:
+  - sklearn
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: hyperparameter tunning
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - training_set
+  - load_model
+  uuid: hyperparameter_tunning
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: fraud_project/data_exporters/sklearn.py
+  downstream_blocks:
+  - dashboard_data_source
+  - model_exporter
+  - testing
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: sklearn
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - hyperparameter_tunning
+  uuid: sklearn
+- all_upstream_blocks_executed: true
+  color: pink
+  configuration:
+    file_source:
+      path: fraud_project/custom/dashboard_data_source.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Dashboard data source
+  retry_config: null
+  status: failed
+  timeout: null
+  type: custom
+  upstream_blocks:
+  - sklearn
+  uuid: dashboard_data_source
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: fraud_project/data_exporters/model_exporter.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: model_exporter
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - sklearn
+  uuid: model_exporter
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_path: fraud_project/transformers/testing.py
+    file_source:
+      path: fraud_project/transformers/testing.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: testing
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - sklearn
+  uuid: testing
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2024-08-09 10:52:09.323682+00:00'
+data_integration: null
+description: null
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: class_modelling
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags: []
+type: python
+uuid: class_modelling
+variables:
+  max_evaluations: 10
+  random_state: 42
+variables_dir: /home/src/mage_data/fraud_project
+widgets: []
