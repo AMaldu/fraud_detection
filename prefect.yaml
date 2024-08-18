@@ -36,3 +36,22 @@ deployments:
   - prefect.deployments.steps.git_clone:
       repository: https://github.com/AMaldu/fraud_detection.git
       branch: main
+- name: reduced_project
+  version:
+  tags: []
+  description:
+  entrypoint: orchestration/orquestrate.py:main_flow
+  parameters: {}
+  work_pool:
+    name: reduced_project_pool
+    work_queue_name:
+    job_variables: {}
+  schedules:
+  - interval: 60.0
+    anchor_date: '2024-08-18T13:26:49.743422+00:00'
+    timezone: UTC
+    active: true
+  pull:
+  - prefect.deployments.steps.git_clone:
+      repository: https://github.com/AMaldu/fraud_detection.git
+      branch: main
