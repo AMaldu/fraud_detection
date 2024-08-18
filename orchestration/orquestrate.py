@@ -1,18 +1,18 @@
 import os
-import pandas as pd
-from prefect import task, Flow
-from datetime import timedelta
-from pandas import DataFrame
-import category_encoders as ce
+import pickle
 from typing import Tuple
+
+import category_encoders as ce
+import pandas as pd
+from imblearn.over_sampling import SMOTE
+from pandas import DataFrame
+from prefect import Flow, task
 from scipy.sparse import csr_matrix
 from sklearn.compose import ColumnTransformer
-from sklearn.preprocessing import OneHotEncoder, StandardScaler
-from imblearn.over_sampling import SMOTE
-from sklearn.model_selection import train_test_split
-import pickle
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, precision_score, recall_score
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
 
 @task

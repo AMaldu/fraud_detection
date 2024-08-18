@@ -1,5 +1,4 @@
 from pandas import DataFrame
-from prefect import task
 
 
 def combine_features(df: DataFrame) -> DataFrame:

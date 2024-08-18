@@ -1,12 +1,13 @@
 import os
+
+import joblib
 import pandas as pd
-from sklearn.compose import ColumnTransformer
-from sklearn.preprocessing import StandardScaler, OneHotEncoder
-from sklearn.model_selection import train_test_split
 from imblearn.over_sampling import SMOTE
 from imblearn.pipeline import Pipeline
-import joblib
 from scipy.sparse import save_npz
+from sklearn.compose import ColumnTransformer
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
 
 def load_and_prepare_data(filepath):

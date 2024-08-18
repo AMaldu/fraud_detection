@@ -1,0 +1,12 @@
+[flake8]
+max-line-length = 100
+exclude = 
+    .git,
+    .tox,
+    .nox,
+    .venv,
+    _build,
+    buck-out,
+    build,
+    dist,
+    orchestration/flows/main_flow.py

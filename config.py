@@ -1,6 +1,6 @@
 # fraud_detection/config.py
-import sys
 import os
+import sys
 
 
 def add_src_to_sys_path():

@@ -1,6 +1,6 @@
 import requests
+
 from predict import predict, prepare_features
-import pandas as pd
 
 customer = {
     "step": 5,

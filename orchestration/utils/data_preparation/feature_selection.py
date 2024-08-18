@@ -1,7 +1,7 @@
-import pandas as pd
-import category_encoders as ce
 from typing import Optional
-from prefect import task
+
+import category_encoders as ce
+import pandas as pd
 
 
 def select_features(

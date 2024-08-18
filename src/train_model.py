@@ -1,11 +1,10 @@
-import pandas as pd
+import joblib
 import mlflow
 import mlflow.sklearn
-import joblib
+import pandas as pd
+from hyperopt import Trials, fmin, hp, tpe
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report, confusion_matrix
-from sklearn.model_selection import train_test_split
-from hyperopt import hp, fmin, tpe, Trials
 
 mlflow.set_experiment("fraud_detection_experiment")
 

@@ -1,16 +1,17 @@
 from typing import Callable, Dict, List, Tuple, Union
-from hyperopt import hp, tpe
+
+from hyperopt import hp
 from hyperopt.pyll import scope
+
 from sklearn.ensemble import (
     ExtraTreesRegressor,
     GradientBoostingRegressor,
-    RandomForestRegressor,
     RandomForestClassifier,
+    RandomForestRegressor,
 )
 from sklearn.linear_model import Lasso, LinearRegression
 from sklearn.svm import LinearSVR
 from xgboost import Booster
-from prefect import task
 
 
 def build_hyperparameters_space(

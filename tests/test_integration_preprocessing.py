@@ -1,16 +1,17 @@
-import unittest
 import os
-import pandas as pd
+import unittest
+
 import joblib
+import pandas as pd
 from scipy.sparse import load_npz
+from sklearn.model_selection import train_test_split
 from your_module import (
-    load_and_prepare_data,
-    split_features_labels,
     create_preprocessor,
+    load_and_prepare_data,
     preprocess_data,
     save_data,
+    split_features_labels,
 )
-from sklearn.model_selection import train_test_split
 
 
 class TestFullPipeline(unittest.TestCase):

@@ -1,9 +1,9 @@
-import matplotlib.pyplot as plt
-import seaborn as sns
-import pandas as pd
-from scipy.stats import probplot, skew, kurtosis
-import pickle
 import os
+import pickle
+
+import matplotlib.pyplot as plt
+
+
 
 
 def pie_plot(col):

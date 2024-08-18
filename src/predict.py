@@ -1,9 +1,9 @@
 import os
 import pickle
 from typing import Any
-from flask import Flask, request, jsonify
-import pandas as pd
 
+import pandas as pd
+from flask import Flask, jsonify, request
 
 # run gunicorn --bind=0.0.0.0:9696 src.predict:app
 

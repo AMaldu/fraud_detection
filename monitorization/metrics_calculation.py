@@ -1,19 +1,20 @@
 import datetime
-import time
-import random
 import logging
+import random
+import time
+from datetime import datetime, timedelta
+
+import joblib
 import pandas as pd
 import psycopg
-import joblib
+import pytz
 from evidently import ColumnMapping
-from evidently.report import Report
 from evidently.metrics import (
     ColumnDriftMetric,
     DatasetDriftMetric,
     DatasetMissingValuesMetric,
 )
-from datetime import datetime, timedelta
-import pytz
+from evidently.report import Report
 
 logging.basicConfig(
     level=logging.INFO, format="%(asctime)s [%(levelname)s]: %(message)s"

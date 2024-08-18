@@ -1,5 +1,4 @@
 import pandas as pd
-from prefect import task
 
 
 def clean(df: pd.DataFrame) -> pd.DataFrame:

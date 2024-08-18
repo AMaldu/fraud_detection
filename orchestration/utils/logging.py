@@ -4,7 +4,6 @@ from typing import Dict, Optional, Tuple, Union
 import mlflow
 import numpy as np
 import pandas as pd
-import psycopg2
 import xgboost as xgb
 from mlflow import MlflowClient
 from mlflow.data import from_numpy, from_pandas
@@ -12,8 +11,8 @@ from mlflow.entities import DatasetInput, InputTag, Run
 from mlflow.models import infer_signature
 from mlflow.sklearn import log_model as log_model_sklearn
 from mlflow.xgboost import log_model as log_model_xgboost
-from sklearn.base import BaseEstimator
 from prefect import task
+from sklearn.base import BaseEstimator
 
 DEFAULT_DEVELOPER = os.getenv("EXPERIMENTS_DEVELOPER", "mager")
 DEFAULT_EXPERIMENT_NAME = "nyc-taxi-experiment"
