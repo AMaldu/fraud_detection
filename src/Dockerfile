@@ -1,20 +1,28 @@
-FROM python:3.10.12-slim
+FROM python:3.10-slim
 
-RUN pip install -U pip
-RUN pip install pipenv
+RUN apt-get update && \
+    apt-get install -y \
+    gcc \
+    g++ \
+    make \
+    libffi-dev \
+    libssl-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN pip install --no-cache-dir pipenv
+
+COPY Pipfile Pipfile.lock /app/
+COPY src/ /app/src/
+COPY orchestration/models/ /app/orchestration/models/
 
 WORKDIR /app
 
+RUN pipenv install --system --deploy 
 
-COPY ['Pipfile', 'Pipfile.lock', "./"] 
-# "./" = current directory
+EXPOSE 9696
 
+ENTRYPOINT ["gunicorn", "--bind", "0.0.0.0:9696", "src.predict:app"]
 
-RUN pipenv install --system --deploy
-
-COPY ['predict.py', 'pipeline_model.pkl', './']
-
-#Expose the port 9696 to be able to listen
-EXPOSE 9696 
-
-ENTRYPOINT [ "gunicorn", "--bind=0.0.0.0.:9696", "predict:app" ]
+# docker build -t fraud_detection_app -f src/Dockerfile .
+#docker run -p 9696:9696 fraud_detection_app
+# cd src & python test.py
