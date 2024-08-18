@@ -4,7 +4,6 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-src = {file = ".", editable = true}
 click = "*"
 coverage = "*"
 awscli = "*"
@@ -14,7 +13,6 @@ pandas = "==2.2.2"
 matplotlib = "*"
 numpy = "*"
 seaborn = "*"
-scikit-learn = "1.5.1"
 mlflow = "*"
 dvc = "*"
 prince = "*"
@@ -35,10 +33,13 @@ psycopgbinary = "*"
 evidently = "*"
 pandas-profiling = "*"
 imbalanced-learn = "*"
+scikit-learn = "==1.5.1"
 
 [dev-packages]
 ipykernel = "*"
 requests = "*"
+pytest = "*"
+pylint = "*"
 
 [requires]
-python_version = "3.11"
+python_version = "3.10"

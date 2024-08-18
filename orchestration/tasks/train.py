@@ -6,6 +6,7 @@ from prefect import task
 
 from mlops.utils.models.sklearn_classification import load_class, train_model
 
+
 @task
 def train(
     settings: Tuple[
@@ -18,17 +19,16 @@ def train(
 ) -> Tuple[BaseEstimator, Dict[str, str]]:
     hyperparameters, X, y, model_info = settings
 
-
     # if 'criterion' in hyperparameters:
     #     criterion_values = ['gini', 'entropy']
     #     if isinstance(hyperparameters['criterion'], int):
     #         hyperparameters['criterion'] = criterion_values[hyperparameters['criterion']]
-    
+
     # if 'bootstrap' in hyperparameters:
     #     bootstrap_values = [True, False]
     #     if isinstance(hyperparameters['bootstrap'], int):
     #         hyperparameters['bootstrap'] = bootstrap_values[hyperparameters['bootstrap']]
-    
+
     # if 'max_features' in hyperparameters:
     #     max_features_values = ['sqrt', 'log2']
     #     if isinstance(hyperparameters['max_features'], int):
@@ -36,8 +36,8 @@ def train(
     #             hyperparameters['max_features'] = max_features_values[hyperparameters['max_features']]
     #         else:
     #             raise ValueError("Índice de 'max_features' fuera de rango.")
-    
-    model_class = model_info['cls']
+
+    model_class = model_info["cls"]
     model = model_class(**hyperparameters)
 
     model, metrics, _ = train_model(model, X, y)
