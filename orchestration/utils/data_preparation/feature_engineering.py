@@ -1,7 +1,7 @@
 from pandas import DataFrame
 from prefect import task
 
-@task
+
 def combine_features(df: DataFrame) -> DataFrame:
     # Calculating balance differences
     df['diffbalanceOrig'] = df['newbalanceOrig'] - df['oldbalanceOrig']

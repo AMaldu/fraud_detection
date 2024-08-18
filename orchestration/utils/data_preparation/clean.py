@@ -1,7 +1,7 @@
 import pandas as pd
 from prefect import task
 
-@task
+
 def clean(df: pd.DataFrame) -> pd.DataFrame:
     # Renaming columns
     df = df.rename(columns={'oldbalanceOrg': 'oldbalanceOrig'})
