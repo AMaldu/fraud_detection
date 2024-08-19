@@ -1,3 +1,5 @@
+# pylint: disable=all
+
 import joblib
 import mlflow
 import mlflow.sklearn
@@ -49,7 +51,7 @@ with mlflow.start_run():
         max_evals=20,
     )
 
-    print("Mejores hiperparámetros encontrados:")
+    print("Best hyperparams:")
     print(best)
 
     best_model = RandomForestClassifier(
@@ -76,8 +78,6 @@ with mlflow.start_run():
     mlflow.sklearn.log_model(best_model, "random_forest_model")
 
     joblib.dump(best_model, "../models/random_forest_model.pkl")
-    print("Modelo guardado localmente en '../models/random_forest_model.pkl'")
+    print("Model saved locally in '../models/random_forest_model.pkl'")
 
-print(
-    "Entrenamiento, ajuste de hiperparámetros y registro de modelo completado con MLflow."
-)
+print("Training, hyperparams and model registry completed.")

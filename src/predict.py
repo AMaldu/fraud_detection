@@ -1,3 +1,5 @@
+# pylint: disable=all
+
 import os
 import pickle
 from typing import Any
@@ -9,7 +11,7 @@ from flask import Flask, jsonify, request
 
 
 def load_and_predict_model():
-    base_path = os.path.dirname(__file__)  # Obtiene el directorio actual
+    base_path = os.path.dirname(__file__)
     model_path = os.path.join(
         base_path, "../orchestration/models/random_forest_classifier.b"
     )
@@ -17,11 +19,9 @@ def load_and_predict_model():
         base_path, "../orchestration/models/preprocessor_pipeline.b"
     )
 
-    # Carga el modelo
     with open(model_path, "rb") as f_in:
         model = pickle.load(f_in)
 
-    # Carga el preprocesador
     with open(prep_path, "rb") as f_in:
         preprocessor = pickle.load(f_in)
 

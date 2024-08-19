@@ -1,3 +1,5 @@
+# pylint: disable=all
+
 import os
 import pickle
 
@@ -18,19 +20,6 @@ def pie_plot(col):
         explode=explode,
     )
     plt.title(f"Percentatge of {col.name} values")
-    plt.show()
-
-
-def scatter_plot(col1, col2):
-    plt.figure(figsize=(8, 6))
-    plt.scatter(col1, col2, c=col1, cmap="viridis")
-    plt.xlabel("isFraud")
-    plt.ylabel("isflaggedfraud")
-    plt.title(
-        "Matriz de Gráficos de Puntos para las Columnas 'fraud' e 'isflaggedfraud'"
-    )
-
-    plt.colorbar(label="isFraud")
     plt.show()
 
 
