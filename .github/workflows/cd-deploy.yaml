@@ -1,0 +1,4 @@
+name : CI tests
+on:
+    pull_requests:
+     branches:

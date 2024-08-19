@@ -33,8 +33,23 @@ clean:
 	find . -type d -name "__pycache__" -delete
 
 ## Lint using flake8
-lint:
-	flake8 src
+quality_cheacks:
+	flake8 .
+	black .
+	isort .
+	pylint --recursive=y .
+
+test:
+	pytest tests/
+
+integration_test:
+	bash integration_test/run.sh
+
+build: quality_cheacks test
+
+setup:
+	pipenv install --dev
+	pre-commit install
 
 ## Upload Data to default DVC remote
 push:
