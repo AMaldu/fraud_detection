@@ -1,0 +1,30 @@
+name: pre-commit
+
+on:
+  pull_request:
+  push:
+    branches: [] # Sin restricciones de rama
+
+jobs:
+  pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+      with:
+        node-version: '20'
+
+
+    - name: Checkout Python
+      uses: actions/setup-python@v3
+
+    - name: Pre-commit actions
+      uses: pre-commit/action@v3.0.1
+
+
+    - name: Run Python Custom Tests
+      run: |
+          python tests/test_utils.py
+          python tests/test_composed_names.py
+          python tests/test_composed_names_de.py
+          python tests/test_composed_surnames.py

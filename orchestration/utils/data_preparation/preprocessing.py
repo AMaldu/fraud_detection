@@ -8,7 +8,10 @@ from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
 
 def preprocessor(
-    df: pd.DataFrame, target: str, test_size: float = 0.2, random_state: int = 42
+    df: pd.DataFrame,
+    target: str,
+    test_size: float = 0.2,
+    random_state: int = 42,
 ) -> Tuple[pd.DataFrame, pd.DataFrame, pd.Series, pd.Series]:
     categorical_features = ["type", "nameDest"]
     numeric_features = [

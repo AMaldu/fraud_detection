@@ -4,8 +4,6 @@ import pickle
 import matplotlib.pyplot as plt
 
 
-
-
 def pie_plot(col):
     trans_freq = col.value_counts()
     explode = [0.02] * len(trans_freq)
@@ -77,17 +75,6 @@ def detect_outliers(data):
         print(
             f"Column: {column}, Percentage of outliers: {percentage:.2f}%, Total number of outliers: {count_outliers}"
         )
-
-
-def qq_plots(data, numeric_cols):
-    for column in numeric_cols:
-        plt.figure(figsize=(8, 5))
-        probplot(data[column], dist="norm", plot=plt)
-        plt.title(f"Q-Q plot for {column}")
-        plt.xlabel("Theoretical Quantiles")
-        plt.ylabel("Sample Quantiles")
-        plt.grid(True)
-        plt.show()
 
 
 def load_from_pickle(file_path):

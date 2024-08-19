@@ -2,7 +2,6 @@ from typing import Callable, Dict, List, Tuple, Union
 
 from hyperopt import hp
 from hyperopt.pyll import scope
-
 from sklearn.ensemble import (
     ExtraTreesRegressor,
     GradientBoostingRegressor,

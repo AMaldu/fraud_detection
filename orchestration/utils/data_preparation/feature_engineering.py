@@ -8,7 +8,12 @@ def combine_features(df: DataFrame) -> DataFrame:
 
     # Dropping unnecessary columns
     df = df.drop(
-        columns=["newbalanceOrig", "nameOrig", "newbalanceDest", "isFlaggedFraud"]
+        columns=[
+            "newbalanceOrig",
+            "nameOrig",
+            "newbalanceDest",
+            "isFlaggedFraud",
+        ]
     )
 
     return df

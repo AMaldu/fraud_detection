@@ -1,6 +1,0 @@
-[tool.black]
-exclude = '''orchestration/flows/main_flow.py'''
-
-[flake8]
-max-line-length = 150
-exclude = .git,.tox,.nox,.venv,_build,buck-out,build,dist,orchestration/flows/main_flow.py

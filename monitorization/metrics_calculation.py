@@ -2,12 +2,11 @@ import datetime
 import logging
 import random
 import time
-from datetime import datetime, timedelta
+from datetime import timedelta
 
 import joblib
 import pandas as pd
 import psycopg
-import pytz
 from evidently import ColumnMapping
 from evidently.metrics import (
     ColumnDriftMetric,
@@ -71,7 +70,8 @@ report = Report(
 # db preparation
 def prep_db():
     with psycopg.connect(
-        "host=localhost port=5432 user=postgres password=example", autocommit=True
+        "host=localhost port=5432 user=postgres password=example",
+        autocommit=True,
     ) as conn:
         res = conn.execute("SELECT 1 FROM pg_database WHERE datname='test'")
         if len(res.fetchall()) == 0:

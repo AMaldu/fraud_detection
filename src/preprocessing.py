@@ -18,7 +18,12 @@ def load_and_prepare_data(filepath):
     df["diffbalanceOrig"] = df["newbalanceOrig"] - df["oldbalanceOrig"]
     df["diffbalanceDest"] = df["newbalanceDest"] - df["oldbalanceDest"]
     df = df.drop(
-        columns=["newbalanceOrig", "nameOrig", "newbalanceDest", "isFlaggedFraud"]
+        columns=[
+            "newbalanceOrig",
+            "nameOrig",
+            "newbalanceDest",
+            "isFlaggedFraud",
+        ]
     )
     return df
 

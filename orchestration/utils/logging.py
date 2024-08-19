@@ -106,7 +106,7 @@ def track_experiment(
             ("dataset", training_set, dict(context="training")),
             (
                 "targets",
-                training_targets.to_numpy() if training_targets is not None else None,
+                (training_targets.to_numpy() if training_targets is not None else None),
                 dict(context="training"),
             ),
             ("dataset", validation_set, dict(context="validation")),

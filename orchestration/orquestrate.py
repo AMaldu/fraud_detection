@@ -132,7 +132,10 @@ def select_features(df: pd.DataFrame, target: str) -> pd.DataFrame:
 
 @task
 def preprocessor(
-    df: pd.DataFrame, target: str, test_size: float = 0.2, random_state: int = 42
+    df: pd.DataFrame,
+    target: str,
+    test_size: float = 0.2,
+    random_state: int = 42,
 ) -> Tuple[csr_matrix, csr_matrix, pd.Series, pd.Series]:
 
     # Identificar características categóricas y numéricas
@@ -186,7 +189,10 @@ def preprocessor(
 
 @task(log_prints=True)
 def train_best_model(
-    X_train: csr_matrix, X_test: csr_matrix, y_train: pd.Series, y_test: pd.Series
+    X_train: csr_matrix,
+    X_test: csr_matrix,
+    y_train: pd.Series,
+    y_test: pd.Series,
 ):
     model = RandomForestClassifier(
         n_estimators=190, max_depth=45, min_samples_split=7, random_state=42
