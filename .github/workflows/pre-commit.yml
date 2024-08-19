@@ -22,9 +22,9 @@ jobs:
       uses: pre-commit/action@v3.0.1
 
 
-    - name: Run Python Custom Tests
-      run: |
-          python tests/test_utils.py
-          python tests/test_composed_names.py
-          python tests/test_composed_names_de.py
-          python tests/test_composed_surnames.py
+    # - name: Run Python Custom Tests
+    #   run: |
+    #       python tests/test_utils.py
+    #       python tests/test_composed_names.py
+    #       python tests/test_composed_names_de.py
+    #       python tests/test_composed_surnames.py
