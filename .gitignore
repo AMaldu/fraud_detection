@@ -409,12 +409,12 @@ dmypy.json
 *-deployment.yaml
 
 # Big files
-# *.parquet - if not retrieving file from remote storage 
+# *.parquet - if not retrieving file from remote storage
 # (e.g. S3 or URL), need to have in GH Repo
 *.csv
 *.json
 
-# MLflow 
+# MLflow
 *mlruns*
 *models*
 *mlflow.db*

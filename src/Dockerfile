@@ -17,7 +17,7 @@ COPY orchestration/models/ /app/orchestration/models/
 
 WORKDIR /app
 
-RUN pipenv install --system --deploy 
+RUN pipenv install --system --deploy
 
 EXPOSE 9696
 

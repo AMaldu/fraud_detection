@@ -7,4 +7,4 @@ https://towardsdatascience.com/fraud-through-the-eyes-of-a-machine-1dd994405e6e
 Feature engineering ideas:
 - Convert steps to days. Then check by days of the week if theres a pattern for fraud
 - Convert amount to bins (same size?)
-- 
+-

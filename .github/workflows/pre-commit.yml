@@ -21,6 +21,14 @@ jobs:
     - name: Pre-commit actions
       uses: pre-commit/action@v3.0.1
 
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+        pip install pylint
+
+    - name: Run pre-commit hooks
+      run: pre-commit run --all-files
+
 
     - name: Run Python Custom Tests
       run: |
