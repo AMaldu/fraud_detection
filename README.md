@@ -41,7 +41,7 @@ Instructions
     ```bash
     pipenv install -r requirements.txt
 
-4. ** Running the project **:
+4. **Running the project**:
     ```bash
     docker compose up
 
@@ -56,23 +56,43 @@ How it works
 - multivariate analysis
 - individual analysis of some features of interest
 
-**Experiments**: this folder contains the part with the experimentation using MLFlow
-    Run the mlflow server:
+**Experiments**: This folder contains the part with the experimentation using MLFlow
+1. Run the MLFlow server:
     ```bash
     cd experiments
     mlflow server --backend-store-uri sqlite:///backend.db --default-artifact-root ./artifacts_local
+    ```
+2. Now you can play with the different notebooks and see the results on the UI of MLFlow.
 
-Now you can play with the different notebooks and see the results on the UI of MLFlow.
+   **Note**: The original dataset is very large, so a version of the experiments with a reduced dataset is also provided.
 
-Note: The original dataset is very big so I did a version of the experiments with a reduced dataset.
-
-**Orchestration**: this folder contains the scripts used for the orchestration in Prefect Server
-    1. Run the Prefect server:
+**Orchestration**: This folder contains the scripts used for orchestration in Prefect Server
+1. Run the Prefect server:
     ```bash
     prefect server start
-
-    2. Set API for server:
+    ```
+2. Set the API URL for the server:
     ```bash
     prefect config set PREFECT_API_URL=http://127.0.0.1:4200/api
+    ```
+3. Run the `orchestrate.py` file or check the pipelines that are already inside Prefect.
 
-    3. Run the orquestrate.py file or check the pipelines that are already inside Prefect.
+**Deployment**: This folder contains the scripts used for deploying the preprocessor and the model inside a Docker container.
+1. Run the Dockerfile
+        ```bash
+    cd src
+    docker build -t fraud_detection_app -f src/Dockerfile .
+    docker run -p 9696:9696 fraud_detection_app
+    ```
+
+**Monitorization**: This folder contains the notebooks for monitoring the model with Grafana
+
+1. Run
+    ```bash
+    docker compose up --build
+    ```
+2. Run the jupyter notebooks
+
+3. Run the 'metrics_calculation.py file and acces the Adminer database: http://localhost:8080/
+
+4. Open Grafana to see the monitorization metrics and alerts: http://localhost:3000/
