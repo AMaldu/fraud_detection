@@ -80,7 +80,6 @@ How it works
 **Deployment**: This folder contains the scripts used for deploying the preprocessor and the model inside a Docker container.
 1. Run the Dockerfile
     ```bash
-    cd src
     docker build -t fraud_detection_app -f src/Dockerfile .
     docker run -p 9696:9696 fraud_detection_app
     ```

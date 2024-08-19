@@ -1,0 +1,61 @@
+name: Integration Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  integration-tests:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:latest
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_PASSWORD: example
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+      adminer:
+        image: adminer:latest
+        ports:
+          - 8080:8080
+
+      grafana:
+        image: grafana/grafana-enterprise:latest
+        ports:
+          - 3000:3000
+        volumes:
+          - ./config/grafana_datasources.yaml:/etc/grafana/provisioning/datasources/datasource.yaml:ro
+          - ./config/grafana_dashboards.yaml:/etc/grafana/provisioning/dashboards/dashboards.yaml:ro
+          - ./dashboards:/opt/grafana/dashboards
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest requests psycopg2-binary
+
+      - name: Run integration tests
+        run: |
+          pytest test_integration.py
+
+      - name: Stop Docker Compose
+        run: docker-compose down
