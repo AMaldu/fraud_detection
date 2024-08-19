@@ -62,7 +62,7 @@ How it works
     cd experiments
     mlflow server --backend-store-uri sqlite:///backend.db --default-artifact-root ./artifacts_local
     ```
-2. Now you can play with the different notebooks and see the results on the UI of MLFlow.
+2. Now you can play with the the 'random_forest_reduced.ipynb' file and see the results on the UI of MLFlow.
 
    **Note**: The original dataset is very large, so a version of the experiments with a reduced dataset is also provided.
 
